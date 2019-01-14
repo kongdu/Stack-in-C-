@@ -1,0 +1,7 @@
+C:\Users\Administrator\Desktop\BJStack\BJStack\bin\Debug\BJStack.exe.config
+C:\Users\Administrator\Desktop\BJStack\BJStack\bin\Debug\BJStack.exe
+C:\Users\Administrator\Desktop\BJStack\BJStack\bin\Debug\BJStack.pdb
+C:\Users\Administrator\Desktop\BJStack\BJStack\obj\Debug\BJStack.csprojAssemblyReference.cache
+C:\Users\Administrator\Desktop\BJStack\BJStack\obj\Debug\BJStack.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Desktop\BJStack\BJStack\obj\Debug\BJStack.exe
+C:\Users\Administrator\Desktop\BJStack\BJStack\obj\Debug\BJStack.pdb
