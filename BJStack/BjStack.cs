@@ -5,23 +5,22 @@ namespace BJStack
     internal class StackMethod
     {
         public int max;    //스택 용량 : 문제에서는 50
-        private int cnt;    //쌓인 스택 개수
-        private string[] array; //배열로
+        public int idx;    //쌓인 스택 개수
+        public string[] array; //배열에 굳이 괄호를 넣을 필요가 있을까?..( )
 
         public StackMethod(int max)
         {
-            cnt = 0;
+            idx = 0;
             this.max = max;
             array = new string[max];
         }
 
         public int Size()
         {
-            return cnt;
+            return idx;
         }
 
         /*--- 스택 용량 ---*/
-
         public int Capacity()
         {
             return max;
@@ -36,31 +35,30 @@ namespace BJStack
             return true;
         }*/
 
-        public int Push()
+        public void Push()
         {
-            if (cnt >= max) throw new Exception("50개 이상 입력해서 스택 실패!");
-            //array[cnt++] = x;
-            cnt++;
-            return cnt;
+            if (idx >= max) throw new Exception("50개 이상 입력해서 스택 실패!");
+            array[idx++] = "(";
         }
 
-        public int Pop()
+        public void Pop()
         {
-            if (cnt <= 0) throw new Exception("팝 실패!!");
-            string x = array[--cnt];
-            return cnt;
+            if (idx <= 0) throw new Exception("팝 실패!!");
+            //string x = array[cnt];
+            array[idx++] = ")";
+
         }
 
         public void Peek()
         {
-            if (cnt <= 0) throw new Exception("!!피크 실패!!");
-            string x = array[cnt - 1];
+            if (idx <= 0) throw new Exception("!!피크 실패!!");
+            string x = array[idx - 1];
             //return x;
         }
 
         public void Print()
         {
-            for (int i = 0; i < cnt; i++)
+            for (int i = 0; i < idx; i++)
             {
                 Console.WriteLine(array[i]);
             }
@@ -86,60 +84,40 @@ namespace BJStack
 
         private static void Main(string[] args)
         {
-            StackMethod sm = new StackMethod(50);
+            int braketCnt = 0; //괄호 개수
+            //int idx;
+            StackMethod sm = new StackMethod(50); //최대 용량을 50으로 셋팅
             string Tstring, input;
             Tstring = Console.ReadLine();
             int T = Int32.Parse(Tstring);
-            input = Console.ReadLine();
-            if (input == "(")
+            while ( T >0 ) // && T <= 50
             {
-                sm.Push();
-            }
-            else if (input == ")")
-            {
-                sm.Pop();
-            }
-            if (cnt % 2 == 0)
-                Console.WriteLine(Result.YES);
-            else
-                Console.WriteLine(Result.NO);
+                input = Console.ReadLine();
 
-            //Console.WriteLine(Result.YES);
-
-            /*
-            while (true)
-            {
-                string input, menu;
-                Console.WriteLine("현재 데이터 수: {0}/{1}\n", sm.Size(), sm.Capacity());
-                Console.WriteLine("(1)푸시 (2)팝 (3)피크 (4)출력 (0)종료 : ");
-                menu = Console.ReadLine();
-                int num = Int32.Parse(menu);
-
-                if (num == 0) break;
-                switch (num)
+                if (input == "(")
                 {
-                    //푸시
-                    case 1:
-                        Console.Write("데이터 : ");
-                        input = Console.ReadLine();
-                        int x = Int32.Parse(input);
-                        if (sm.Push(x) == false)
-                            Console.WriteLine("오류: 푸시에 실패함");
-                        break;
-                    //팝
-                    case 2:
-                        Console.WriteLine("팝 데이터는 {0}입니다\n", sm.Pop());
-                        break;
-                    //피크
-                    case 3:
-                        Console.WriteLine("피크 데이터는 {0}입니다\n", sm.Peek());
-                        break;
-                    //출력
-                    case 4:
-                        sm.Print();
-                        break;
+                   sm.Push();
+                    braketCnt++;
                 }
-            }*/
+                else if (input == ")")
+                {
+                    sm.Pop();
+                    braketCnt--;
+                }
+                else
+                    Console.WriteLine("괄호만 입력하쇼!");
+                    input = Console.ReadLine();
+
+
+                if (braketCnt != 0)
+                    Console.WriteLine(Result.NO);
+                else //합이 0이면
+                    if (sm.array[0] == ")")
+                        Console.WriteLine(Result.NO);
+                    Console.WriteLine(Result.YES);
+                T--;
+
+            }
         }
     }
 }

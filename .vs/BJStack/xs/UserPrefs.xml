@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{39BBB5A4-D736-4730-BA4A-249D2DAA06E3}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="BJStack/StackCSharp_yeon.cs">
+    <Files>
+      <File FileName="BJStack/BjStack.cs" Line="35" Column="25" />
+      <File FileName="BJStack/StackCSharp_yeon.cs" Line="103" Column="4" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.BJStack PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
